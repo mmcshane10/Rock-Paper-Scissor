@@ -77,7 +77,7 @@ namespace RPS.Models
         {
             string[] throws = {"rock", "paper", "scissors"};
             Random rnd = new Random();
-            int choice = rnd.Next(1,4);
+            int choice = rnd.Next(0,2);
 
             return throws[choice];
         }
