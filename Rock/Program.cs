@@ -5,46 +5,16 @@ class Program
 {
     static void Main()
     {
-        Console.Clear();
-        Console.WriteLine("Welcome to Rock, Paper, Scissors!");
-        
-        string password = null;
-        while (!(password == "rock" || password == "paper" || password == "scissors"))
+        Console.WriteLine("Welcome to Rock, Paper, Scissors. Type the number of the mode you'd like to play:");
+        Console.WriteLine("1. Player vs. Player");
+        Console.WriteLine("2. Player vs. Computer");
+        string gameMode = Console.ReadLine();
+        if (gameMode == "1")
         {
-            Console.Clear();
-            password = null;
-            Console.Write("Player 1, choose what you want to throw [Press Enter To Submit]:");
-            while (true)
-            {
-            var key = System.Console.ReadKey(true);
-            if (key.Key == ConsoleKey.Enter)
-                break;
-            password += key.KeyChar;
-            }
+            Game.PlayervPlayer();
         }
-        
-
-        string password2 = null;
-        while (!(password2 == "rock" || password2 == "paper" || password2 == "scissors"))
-        {
-            Console.Clear();
-            password2 = null;
-            Console.Write("Player 2, choose what you want to throw [Press Enter To Submit]:");
-            while (true)
-            {
-            var key = System.Console.ReadKey(true);
-            if (key.Key == ConsoleKey.Enter)
-                break;
-            password2 += key.KeyChar;
-            }
+        else{
+            Game.PlayervComputer();
         }
-
-
-
-        Console.Clear();
-        Game newGame = new Game(password, password2);
-        Console.WriteLine($"Player 1 threw {password}.");
-        Console.WriteLine($"Player 2 threw {password2}.");
-        Console.WriteLine(newGame.DetermineWinner());
     }
 }
